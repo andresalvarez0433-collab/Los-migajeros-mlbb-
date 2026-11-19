@@ -5,7 +5,7 @@
   // The "name" value must exactly match the Worker name in the Cloudflare dashboard.
   // This site does not require D1, R2, KV, or Durable Object bindings.
 
-  "name": "los-migajeros-mlbb",
+  "name": "los-migajeros-nuevo",
 
   // TanStack Start SSR server bundle emitted by `bun run build`.
   "main": "dist/server/server.js",
