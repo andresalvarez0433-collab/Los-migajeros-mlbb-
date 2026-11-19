@@ -16,9 +16,7 @@
   // `name` must stay a valid Cloudflare name (lowercase + dashes, 3–63 chars).
   "name": "los-migajeros-mlbb",
 
-  // The Worker entry is the TanStack Start SSR server bundle — `vite build`
-  // emits dist/server/server.js (`export default { fetch }`). The deploy CI
-  // rediscovers the real built entry and points `main` at it.
+  // TanStack Start SSR server bundle emitted by `bun run build`.
   "main": "dist/server/server.js",
   "compatibility_date": "2025-05-01",
   "compatibility_flags": ["nodejs_compat"],
@@ -35,10 +33,8 @@
     "not_found_handling": "none",
   },
 
-  // Non-secret identity for local dev/build; the deploy sets the real values.
-  // SECRETS (e.g. the fnf token) are NEVER here and NEVER in the Worker — the
-  // platform Outbound Worker injects them on server-side egress.
-  "vars": { "HF_ENV": "dev", "APP_SLUG": "app-slug-placeholder" },
+  // Non-secret app identity. Do not put secrets in this file.
+  "vars": { "HF_ENV": "production", "APP_SLUG": "los-migajeros-mlbb" },
 
   // ── OPT-IN INFRA (off by default) ────────────────────────────────
   // Declare the service in app.manifest.json; the deploy injects the real
