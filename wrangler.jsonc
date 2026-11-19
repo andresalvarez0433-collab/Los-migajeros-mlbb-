@@ -1,19 +1,10 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
 
-  // ── BUILD / DEV CONFIG — NOT the deploy config ───────────────────
-  // Used for local `wrangler dev`. It is NEVER trusted at deploy: the deploy CI
-  // GENERATES a fresh, authoritative wrangler.jsonc from trusted marketplace
-  // metadata (your app.manifest.json + the app row) and ignores everything here.
-  // So `name` and any binding ids below are just BUILD-VALID PLACEHOLDERS — the
-  // real values are injected only at deploy.
-  //
-  // NOTHING is provisioned by default. Declare the infra you want in
-  // app.manifest.json (db / r2 / kv / durableObject); the platform provisions it
-  // and binds it at deploy. For LOCAL `wrangler dev` of an opted-in resource,
-  // uncomment the matching block in the OPT-IN INFRA section below.
-  //
-  // `name` must stay a valid Cloudflare name (lowercase + dashes, 3–63 chars).
+  // Cloudflare Workers Builds reads this Wrangler file for deployment.
+  // The "name" value must exactly match the Worker name in the Cloudflare dashboard.
+  // This site does not require D1, R2, KV, or Durable Object bindings.
+
   "name": "los-migajeros-mlbb",
 
   // TanStack Start SSR server bundle emitted by `bun run build`.
